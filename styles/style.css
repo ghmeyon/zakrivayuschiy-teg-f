@@ -445,10 +445,6 @@ main {
   }
 }
 
-.first__img {
-
-}
-
 .second__img {
   animation: filter-image 1.5s linear infinite;
 }
