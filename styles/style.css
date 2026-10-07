@@ -21,6 +21,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: "wght" var(--main-text-weight);
+  background-color: var(--bg-color);
 }
 
 .accent__font {
@@ -30,8 +31,8 @@
 
 .content {
   width: var(--content-width);
-  border: 2px solid #000;
-  background-color: #ffffff;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
 }
 
 .header {
@@ -70,13 +71,14 @@ main {
 }
 
 .img__wrapper {
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
   position: relative;
 }
 
 .card__image {
+  display: block;
   width: 100%;
-  max-width: 696px;
-  min-width: 371px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
@@ -138,21 +140,26 @@ main {
   background-color: transparent;
 }
 
-.button {
+.button__style {
   display: flex;
   justify-self: center;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 335px;
-  height: 55px;
-  margin-top: 50px;
-  border: 2px solid #000;
-  padding-right: 20px;
-  padding-left: 20px;
-  fill: #ffffff;
+  border: 2px solid var(--border-color);
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  background-color: var(--bg-color);
+}
+
+.save__button {
+  gap: 8px;
+  width: 335px;
+  height: 55px;
+  margin-top: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
+  fill: #ffffff;
 }
 
 .button .button__text {
@@ -171,17 +178,17 @@ main {
   z-index: 2;
 }
 
-.button:before {
+.button__style::before {
   content: "";
   position: absolute;
-  background-color: #000;
+  background-color: var(--bg-color-hover);
   transform: scaleX(0);
   transition: transform 0.5s ease-in-out;
   transform-origin: left;
   inset: 0;
 }
 
-.button:hover::before {
+.button__style:hover::before {
   transform: scale(1);
 }
 
@@ -202,8 +209,8 @@ main {
   width: 353px;
   height: 191px;
   align-items: center;
-  border: 2px solid #000;
-  background-color: #ffffff;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
   position: fixed;
   overflow: hidden;
   padding: 30px;
@@ -224,12 +231,7 @@ main {
 .dialog__button {
   width: 293px;
   height: 38px;
-  border: 2px solid #000;
-  cursor: pointer;
   text-transform: uppercase;
-  overflow: hidden;
-  background-color: #ffffff;
-  position: relative;
   z-index: 2;
 }
 
@@ -239,55 +241,18 @@ main {
   box-shadow: 2px 2px 0 #000;
 }
 
-.dialog__button:before {
-  content: "";
-  position: absolute;
-  background-color: #000;
-  transform: scaleX(0);
-  transition: transform 0.5s ease-in-out;
-  transform-origin: left;
-  inset: 0;
-}
-
-.dialog__button:hover::before {
-  transform: scale(1);
-}
-
-.dialog__button .button__text {
-  border: none;
-}
-
 .disk-dialog {
   width: 80.71px;
 }
 
 .dialog[open]::backdrop {
-  backdrop-filter: brightness(0.5);
+  backdrop-filter: brightness(0.75);
 }
 
 .card__like-button {
-  background-color: #ffffff;
-  cursor: pointer;
   min-width: 130px;
   min-height: 38px;
-  border: 2px solid #000;
-  position: relative;
-  overflow: hidden;
   z-index: 2;
-}
-
-.card__like-button:before {
-  content: "";
-  position: absolute;
-  background-color: #000;
-  transform: scaleX(0);
-  transition: transform 0.5s ease-in-out;
-  transform-origin: left;
-  inset: 0;
-}
-
-.card__like-button:hover::before {
-  transform: scale(1);
 }
 
 .card__icon-button {
@@ -304,7 +269,6 @@ main {
 
 .like-icon {
   align-self: end;
-  transform-origin: center
 }
 
 .card__icon-button:focus {
@@ -326,11 +290,11 @@ main {
   box-shadow: 2px 2px 0 #000;
 }
 
-.button:focus {
+.save__button:focus {
   outline: none;
 }
 
-.button:focus-visible {
+.save__button:focus-visible {
   outline: none;
   transition: 0.3s ease;
   box-shadow: 2px 2px 0 #000;
@@ -353,7 +317,7 @@ main {
     color: #000;
   }
 
-  .button {
+  .save__button {
     display: grid;
     gap: 8px;
     width: 306px;
@@ -361,7 +325,7 @@ main {
     padding: 17px 20px;
   }
 
-  .button .disk {
+  .save__button .disk {
     justify-self: center;
     width: 28px;
     height: 28px;
@@ -370,11 +334,15 @@ main {
   .dialog__button {
     width: 261px;
     min-height: 38px;
-    border: 2px solid #000;
+    border: 2px solid var(--border-color);
     background-color: transparent;
     cursor: pointer;
     text-transform: uppercase;
   }
+}
+
+.heart {
+  transform-origin: center;
 }
 
 .sparks {
@@ -445,34 +413,34 @@ main {
   }
 }
 
-.second__img {
+.start__first-sprint {
   animation: filter-image 1.5s linear infinite;
 }
 
-.third__img {
+.end__first-sprint {
   filter: brightness(300%);
 }
 
-.fourth__img {
+.start__second-sprint {
   filter: invert(1);
 }
 
-.fifth__img {
+.end__second-sprint {
   filter: sepia(80%);
 }
 
-.sixth__img {
+.start__third-sprint {
   filter: contrast(200%) grayscale(60%);
 }
 
-.seventh__img {
+.end__third-sprint {
   filter: blur(3.4px);
 }
 
-.eighth__img {
+.start__fourth-sprint {
   transition: 1s ease;
 }
 
-.eighth__img:hover {
+.start__fourth-sprint:hover {
   filter: opacity(0);
 }
