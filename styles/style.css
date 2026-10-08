@@ -249,7 +249,7 @@ main {
 }
 
 .dialog[open]::backdrop {
-  backdrop-filter: brightness(0.25);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .card__like-button {
